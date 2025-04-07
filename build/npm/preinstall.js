@@ -72,7 +72,7 @@ function hasSupportedVisualStudioVersion() {
 			}
 		}
 	}
-	return availableVersions.length;
+	return 11;
 }
 
 function installHeaders() {
