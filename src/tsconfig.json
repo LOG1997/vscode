@@ -6,9 +6,11 @@
 		"preserveConstEnums": true,
 		"sourceMap": false,
 		"allowJs": true,
+		"jsx": "react-jsx",
 		"resolveJsonModule": true,
 		"isolatedModules": false,
 		"outDir": "../out/vs",
+        // "allowSyntheticDefaultImports": true,
 		"types": [
 			"@webgpu/types",
 			"mocha",
@@ -16,6 +18,7 @@
 			"sinon",
 			"trusted-types",
 			"winreg",
+			// "node",
 			"wicg-file-system-access"
 		],
 		"plugins": [

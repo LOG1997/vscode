@@ -4,10 +4,12 @@
  *--------------------------------------------------------------------------------------------*/
 
 export default {
-	content: ['./src/**/*.{html,js,tsx}'],
+	content: ['./src/**/*.{html,tsx}'],
 	theme: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [
+		require('daisyui'),
+	],
 }
 

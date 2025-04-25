@@ -73,7 +73,7 @@ import { AccessibilityVerbositySettingId } from '../../accessibility/browser/acc
 import { AccessibleViewAction } from '../../accessibility/browser/accessibleViewActions.js';
 import { KeybindingLabel } from '../../../../base/browser/ui/keybindingLabel/keybindingLabel.js';
 import { ScrollbarVisibility } from '../../../../base/common/scrollable.js';
-
+import { handleDemo } from './customGettingStarted.js';
 const SLIDE_TRANSITION_TIME_MS = 250;
 const configurationKey = 'workbench.startupEditor';
 
@@ -201,6 +201,9 @@ export class GettingStartedPage extends EditorPane {
 				tabindex: 0,
 				'aria-label': localize('welcomeAriaLabel', "Overview of how to get up to speed with your editor.")
 			});
+		// NOTE:创建元素
+		const demoElement = handleDemo();
+		this.container.appendChild(demoElement);
 		this.stepMediaComponent = $('.getting-started-media');
 		this.stepMediaComponent.id = generateUuid();
 
