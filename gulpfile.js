@@ -18,14 +18,17 @@ const babel = require('gulp-babel');
 // });
 // 定义 Babel 编译任务
 gulp.task('babel-tsx', (cb) => {
-	 gulp.src('src/**/*.tsx') // 指定源文件路径
+	gulp.src('src/**/*.tsx') // 指定源文件路径
 		// .pipe(notNodeModules)
 		.pipe(babel({
 			presets: [
 				[
 					"@babel/preset-env",
 					{
-						"modules": false
+						"targets": "> 0.25%, not dead", // 指定目标浏览器版本
+						"useBuiltIns": "usage", // 使用polyfills按需加载
+						"corejs": 3, // 使用core-js 3版本
+						"modules": false // 如果你不需要转换模块语法（例如，在打包工具如Webpack中处理模块）
 					}
 				],
 				"@babel/preset-typescript"
@@ -35,16 +38,16 @@ gulp.task('babel-tsx', (cb) => {
 			]
 		})) // 使用 Babel 进行编译
 		.pipe(gulp.dest('out')) // 输出到目标文件夹
-		cb();
+	cb();
 });
 
 // 监听文件变化并自动运行 Babel 编译任务
 gulp.task('watch-tsx', (cb) => {
 	gulp.watch('src/**/*.tsx', gulp.series('babel-tsx'))
-	.on('error', function(err) {
-        console.error('some watch error:',err.toString());
-        this.emit('end'); // 重要：结束流以防止进程挂起
-	})
+		.on('error', function (err) {
+			console.error('some watch error:', err.toString());
+			this.emit('end'); // 重要：结束流以防止进程挂起
+		})
 	cb();
 });
 

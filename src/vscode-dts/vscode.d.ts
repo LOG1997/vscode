@@ -20428,14 +20428,7 @@ declare module 'vscode' {
 }
 
 // vscode.jsx.d.ts
-import { ReactElement } from 'react';
-// export { };
 
-declare global {
-	interface HTMLElement {
-		appendChild<T extends (Node | ReactElement)>(node: T): T;
-	}
-}
 
 /**
  * Thenable is a common denominator between ES6 promises, Q, jquery.Deferred, WinJS.Promise,
