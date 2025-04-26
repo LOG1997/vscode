@@ -90,7 +90,7 @@ registerAction2(class extends Action2 {
 				if (group.activeEditor instanceof GettingStartedInput) {
 					const activeEditor = group.activeEditor as GettingStartedInput;
 					activeEditor.showWelcome = false;
-					(group.activeEditorPane as GettingStartedPage).makeCategoryVisibleWhenAvailable(selectedCategory, selectedStep);
+					// (group.activeEditorPane as GettingStartedPage).makeCategoryVisibleWhenAvailable(selectedCategory, selectedStep);
 					return;
 				}
 			}
@@ -132,7 +132,7 @@ registerAction2(class extends Action2 {
 					resource: GettingStartedInput.RESOURCE,
 					options
 				}, toSide ? SIDE_GROUP : undefined).then((editor) => {
-					(editor as GettingStartedPage)?.makeCategoryVisibleWhenAvailable(selectedCategory, selectedStep);
+					// (editor as GettingStartedPage)?.makeCategoryVisibleWhenAvailable(selectedCategory, selectedStep);
 				});
 
 			}
@@ -190,7 +190,7 @@ CommandsRegistry.registerCommand({
 		const editorService = accessor.get(IEditorService);
 		const editorPane = editorService.activeEditorPane;
 		if (editorPane instanceof GettingStartedPage) {
-			editorPane.selectStepLoose(stepID);
+			// editorPane.selectStepLoose(stepID);
 		} else {
 			console.error('Cannot run walkthroughs.selectStep outside of walkthrough context');
 		}
